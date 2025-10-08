@@ -14,7 +14,7 @@ vi.mock("@calcom/lib/constants", async () => {
   const actual = await vi.importActual("@calcom/lib/constants");
   return {
     ...actual,
-    WEBAPP_URL: "http://localhost:3000",
+    WEBAPP_URL: "http://localhost:7502",
   };
 });
 

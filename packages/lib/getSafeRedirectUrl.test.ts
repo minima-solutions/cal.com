@@ -28,8 +28,8 @@ describe("isSafeUrlToLoadResourceFrom", () => {
   });
 
   it("should return true for localhost URLs", () => {
-    expect(isSafeUrlToLoadResourceFrom("http://localhost:3000")).toBe(true);
-    expect(isSafeUrlToLoadResourceFrom("http://127.0.0.1:3000")).toBe(true);
+    expect(isSafeUrlToLoadResourceFrom("http://localhost:7502")).toBe(true);
+    expect(isSafeUrlToLoadResourceFrom("http://127.0.0.1:7502")).toBe(true);
   });
 
   it("should return false for different TLD+1", () => {

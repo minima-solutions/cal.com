@@ -11,7 +11,7 @@
     {
       "label": "Launch Cal.com Development terminals",
       "dependsOn": [
-        "Web App(3000)",
+        "Web App(7502)",
         "Website(3001)",
         "Embed Core(3100)",
         "Embed React(3101)",
@@ -26,7 +26,7 @@
     },
     {
       // The name that shows up in terminal tab
-      "label": "Web App(3000)",
+      "label": "Web App(7502)",
       // The task will launch a shell
       "type": "shell",
       "command": "yarn dev",

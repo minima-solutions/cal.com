@@ -9,7 +9,7 @@ test.describe("Change Password Test", () => {
   test("change password", async ({ page, users }) => {
     const pro = await users.create();
     await pro.apiLogin();
-    // Go to http://localhost:3000/settings/security
+    // Go to http://localhost:7502/settings/security
     await page.goto("/settings/security/password");
 
     expect(pro.username).toBeTruthy();

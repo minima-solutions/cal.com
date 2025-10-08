@@ -19,7 +19,7 @@ yarn dev
 
 ## Running Tests
 
-Ensure that the main App is running on port 3000 (e.g. yarn dx) already. Also ensure dev server for embed-core is running and then run the following command:
+Ensure that the main App is running on port 7502 (e.g. yarn dx) already. Also ensure dev server for embed-core is running and then run the following command:
 Start the server on 3100 port
 
 ```bash

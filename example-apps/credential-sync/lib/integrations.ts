@@ -12,8 +12,8 @@ export async function generateGoogleCalendarAccessToken() {
     client_id: GOOGLE_CLIENT_ID,
     client_secret: GOOGLE_CLIENT_SECRET,
     redirect_uris: [
-      "http://localhost:3000/api/integrations/googlecalendar/callback",
-      "http://localhost:3000/api/auth/callback/google",
+      "http://localhost:7502/api/integrations/googlecalendar/callback",
+      "http://localhost:7502/api/auth/callback/google",
     ],
   };
   const clientId = keys.client_id;

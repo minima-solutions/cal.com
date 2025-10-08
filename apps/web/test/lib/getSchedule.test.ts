@@ -26,7 +26,7 @@ import { timeTravelToTheBeginningOfToday } from "./getSchedule/utils";
 
 constantsScenarios.set({
   IS_PRODUCTION: true as any,
-  WEBAPP_URL: "http://localhost:3000",
+  WEBAPP_URL: "http://localhost:7502",
   RESERVED_SUBDOMAINS: ["auth", "docs"] as any,
   SINGLE_ORG_SLUG: "" as any,
 });

@@ -21,7 +21,7 @@ vi.mock("@calcom/lib/OgImages", () => ({
 }));
 
 vi.mock("@calcom/lib/constants", () => ({
-  WEBAPP_URL: "http://localhost:3000",
+  WEBAPP_URL: "http://localhost:7502",
 }));
 
 global.fetch = vi.fn();

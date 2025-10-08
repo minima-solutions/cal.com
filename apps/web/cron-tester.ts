@@ -6,7 +6,7 @@ dotEnv.config({ path: "../../.env" });
 async function fetchCron(endpoint: string) {
   const apiKey = process.env.CRON_API_KEY;
 
-  const res = await fetch(`http://localhost:3000/api${endpoint}?apiKey=${apiKey}`, {
+  const res = await fetch(`http://localhost:7502/api${endpoint}?apiKey=${apiKey}`, {
     headers: {
       "Content-Type": "application/json",
       authorization: `Bearer ${process.env.CRON_SECRET}`,

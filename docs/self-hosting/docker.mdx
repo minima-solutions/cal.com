@@ -70,7 +70,7 @@ Note: `docker compose` without the hyphen is now the primary method of using doc
     docker compose up -d calcom
     ```
 
-6. Open a browser to [http://localhost:3000](http://localhost:3000), or your defined NEXT_PUBLIC_WEBAPP_URL. The first time you run Cal.com, a setup wizard will initialize. Define your first user, and you're ready to go!
+6. Open a browser to [http://localhost:7502](http://localhost:7502), or your defined NEXT_PUBLIC_WEBAPP_URL. The first time you run Cal.com, a setup wizard will initialize. Define your first user, and you're ready to go!
 
 ### Update Calcom Instance
 
@@ -120,13 +120,13 @@ Check out the [Cal.com Docker](https://github.com/calcom/docker) repository for 
 
 ### CLIENT_FETCH_ERROR
 
-If you experience this error, it may be the way the default Auth callback in the server is using the WEBAPP_URL as a base url. The container does not necessarily have access to the same DNS as your local machine, and therefor needs to be configured to resolve to itself. You may be able to correct this by configuring `NEXTAUTH_URL=http://localhost:3000/api/auth`, to help the backend loop back to itself.
+If you experience this error, it may be the way the default Auth callback in the server is using the WEBAPP_URL as a base url. The container does not necessarily have access to the same DNS as your local machine, and therefor needs to be configured to resolve to itself. You may be able to correct this by configuring `NEXTAUTH_URL=http://localhost:7502/api/auth`, to help the backend loop back to itself.
 ```
 docker-calcom-1  | @calcom/web:start: [next-auth][error][CLIENT_FETCH_ERROR]
-docker-calcom-1  | @calcom/web:start: https://next-auth.js.org/errors#client_fetch_error request to http://testing.localhost:3000/api/auth/session failed, reason: getaddrinfo ENOTFOUND testing.localhost {
+docker-calcom-1  | @calcom/web:start: https://next-auth.js.org/errors#client_fetch_error request to http://testing.localhost:7502/api/auth/session failed, reason: getaddrinfo ENOTFOUND testing.localhost {
 docker-calcom-1  | @calcom/web:start:   error: {
-docker-calcom-1  | @calcom/web:start:     message: 'request to http://testing.localhost:3000/api/auth/session failed, reason: getaddrinfo ENOTFOUND testing.localhost',
-docker-calcom-1  | @calcom/web:start:     stack: 'FetchError: request to http://testing.localhost:3000/api/auth/session failed, reason: getaddrinfo ENOTFOUND testing.localhost\n' +
+docker-calcom-1  | @calcom/web:start:     message: 'request to http://testing.localhost:7502/api/auth/session failed, reason: getaddrinfo ENOTFOUND testing.localhost',
+docker-calcom-1  | @calcom/web:start:     stack: 'FetchError: request to http://testing.localhost:7502/api/auth/session failed, reason: getaddrinfo ENOTFOUND testing.localhost\n' +
 docker-calcom-1  | @calcom/web:start:       '    at ClientRequest.<anonymous> (/calcom/node_modules/next/dist/compiled/node-fetch/index.js:1:65756)\n' +
 docker-calcom-1  | @calcom/web:start:       '    at ClientRequest.emit (node:events:513:28)\n' +
 docker-calcom-1  | @calcom/web:start:       '    at ClientRequest.emit (node:domain:489:12)\n' +
@@ -138,7 +138,7 @@ docker-calcom-1  | @calcom/web:start:       '    at emitErrorCloseNT (node:inter
 docker-calcom-1  | @calcom/web:start:       '    at processTicksAndRejections (node:internal/process/task_queues:83:21)',
 docker-calcom-1  | @calcom/web:start:     name: 'FetchError'
 docker-calcom-1  | @calcom/web:start:   },
-docker-calcom-1  | @calcom/web:start:   url: 'http://testing.localhost:3000/api/auth/session',
-docker-calcom-1  | @calcom/web:start:   message: 'request to http://testing.localhost:3000/api/auth/session failed, reason: getaddrinfo ENOTFOUND testing.localhost'
+docker-calcom-1  | @calcom/web:start:   url: 'http://testing.localhost:7502/api/auth/session',
+docker-calcom-1  | @calcom/web:start:   message: 'request to http://testing.localhost:7502/api/auth/session failed, reason: getaddrinfo ENOTFOUND testing.localhost'
 docker-calcom-1  | @calcom/web:start: }
 ```

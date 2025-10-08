@@ -44,7 +44,7 @@ export const TeamInviteEmail = (
         src={
           IS_PRODUCTION
             ? `${WEBAPP_URL}/emails/calendar-email-hero.png`
-            : "http://localhost:3000/emails/calendar-email-hero.png"
+            : "http://localhost:7502/emails/calendar-email-hero.png"
         }
         alt=""
       />

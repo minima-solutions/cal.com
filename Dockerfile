@@ -60,7 +60,7 @@ RUN rm -rf node_modules/.cache .yarn/cache apps/web/.next/cache
 FROM node:18 AS builder-two
 
 WORKDIR /calcom
-ARG NEXT_PUBLIC_WEBAPP_URL=http://localhost:3000
+ARG NEXT_PUBLIC_WEBAPP_URL=http://localhost:7502
 ENV NODE_ENV=production
 
 # --- source lives at repo root now ---
@@ -77,7 +77,7 @@ COPY scripts ./scripts
 ENV NEXT_PUBLIC_WEBAPP_URL=$NEXT_PUBLIC_WEBAPP_URL \
     BUILT_NEXT_PUBLIC_WEBAPP_URL=$NEXT_PUBLIC_WEBAPP_URL
 
-# RUN ./scripts/replace-placeholder.sh http://NEXT_PUBLIC_WEBAPP_URL_PLACEHOLDER ${NEXT_PUBLIC_WEBAPP_URL}
+RUN ./scripts/replace-placeholder.sh http://NEXT_PUBLIC_WEBAPP_URL_PLACEHOLDER ${NEXT_PUBLIC_WEBAPP_URL}
 
 
 # ---- Runtime ----
@@ -86,14 +86,14 @@ FROM node:18 AS runner
 WORKDIR /calcom
 COPY --from=builder-two /calcom ./
 
-ARG NEXT_PUBLIC_WEBAPP_URL=http://localhost:3000
+ARG NEXT_PUBLIC_WEBAPP_URL=http://localhost:7502
 ENV NEXT_PUBLIC_WEBAPP_URL=$NEXT_PUBLIC_WEBAPP_URL \
     BUILT_NEXT_PUBLIC_WEBAPP_URL=$NEXT_PUBLIC_WEBAPP_URL \
     NODE_ENV=production
 
-EXPOSE 3000
+EXPOSE 7502
 
 HEALTHCHECK --interval=30s --timeout=30s --retries=5 \
-    CMD wget --spider http://localhost:3000 || exit 1
+    CMD wget --spider http://localhost:7502 || exit 1
 
-CMD ["/calcom/scripts/start.sh"]
+CMD ["/bin/sh", "/calcom/scripts/start.sh"]

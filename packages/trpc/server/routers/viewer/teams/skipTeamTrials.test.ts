@@ -22,7 +22,7 @@ vi.mock("@calcom/lib/constants", () => ({
   IS_SELF_HOSTED: false,
   IS_PRODUCTION: false,
   CALCOM_ENV: "test",
-  WEBAPP_URL: "http://localhost:3000",
+  WEBAPP_URL: "http://localhost:7502",
   IS_CALCOM: false,
   HOSTED_CAL_FEATURES: true,
 }));

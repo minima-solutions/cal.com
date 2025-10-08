@@ -24,9 +24,9 @@ Before setting up organizations, ensure you have:
 Set the following environment variables in your `.env` file:
 
 ```bash
-NEXT_PUBLIC_WEBAPP_URL=http://app.cal.local:3000
-NEXT_PUBLIC_WEBSITE_URL=http://app.cal.local:3000
-NEXTAUTH_URL=http://app.cal.local:3000
+NEXT_PUBLIC_WEBAPP_URL=http://app.cal.local:7502
+NEXT_PUBLIC_WEBSITE_URL=http://app.cal.local:7502
+NEXTAUTH_URL=http://app.cal.local:7502
 ORGANIZATIONS_ENABLED=1
 ```
 
@@ -53,7 +53,7 @@ yarn dev
 ## Step 5: Create an Organization
 
 1. Login using `pro@example.com` (or any user account)
-2. Visit `http://app.cal.local:3000/settings/organizations/new`
+2. Visit `http://app.cal.local:7502/settings/organizations/new`
 3. Follow the onboarding steps:
    - Choose a slug for the organization(say `myorg`)
    - Ignore pricing information (not required for self-hosting)
@@ -61,14 +61,14 @@ yarn dev
 ![Onboarding Steps](./images/organization-creation.png)
 
 <Note>
-After creating the organization, you'll be moved inside it and all existing Cal.com links will redirect to the organization URL (e.g., `yourdomain.cal.local:3000`).
+After creating the organization, you'll be moved inside it and all existing Cal.com links will redirect to the organization URL (e.g., `yourdomain.cal.local:7502`).
 </Note>
 
 ## Accessing Your Organization
 
 Now if everything above went well, all booking pages for the organization will be accessible at:
 ```
-http://myorg.cal.local:3000/{CAL_LINK}
+http://myorg.cal.local:7502/{CAL_LINK}
 ```
 
 Read more about some other [Organization related environment variables](./understanding-organization-env-variables.mdx) to configure your Cal.com instance to work with multiple organizations.

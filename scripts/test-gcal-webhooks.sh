@@ -3,7 +3,7 @@
 # Configuration
 LOG_FILE="/tmp/tmole.log"
 ENV_FILE="../.env"
-TM_PORT=3000
+TM_PORT=7502
 TM_KEYWORD="https://.*\.tunnelmole\.net"
 TMOLE_RUNNING=$(pgrep -f "tmole $TM_PORT")
 

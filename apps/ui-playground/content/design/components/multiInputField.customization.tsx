@@ -29,7 +29,7 @@ export const CustomizationExample: React.FC = () => {
                 keyLabel="Environment Variable"
                 valueLabel="Value"
                 optionPlaceholders={["NODE_ENV", "PORT", "DATABASE_URL"]}
-                valuePlaceholders={["production", "3000", "postgres://..."]}
+                valuePlaceholders={["production", "7502", "postgres://..."]}
                 defaultNumberOfOptions={3}
                 keyValueDelimiters={[":", "="]}
               />

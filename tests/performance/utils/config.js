@@ -1,7 +1,7 @@
 import { sleep } from "k6";
 import { SharedArray } from "k6/data";
 
-export const BASE_URL = __ENV.BASE_URL || "http://localhost:3000";
+export const BASE_URL = __ENV.BASE_URL || "http://localhost:7502";
 if (BASE_URL.includes("cal.com")) {
   throw new Error("BLOCKED: Do not run against production domain");
 }

@@ -82,7 +82,7 @@ describe("reserveSlotHandler cookie settings", () => {
   });
 
   it("falls back to SameSite=Lax and no Secure for http WEBAPP_URL", async () => {
-    process.env.NEXT_PUBLIC_WEBAPP_URL = "http://localhost:3000";
+    process.env.NEXT_PUBLIC_WEBAPP_URL = "http://localhost:7502";
     vi.resetModules();
     const { reserveSlotHandler } = await dynamicImportHandler();
     const { prismaStub, reqStub, resStub, getCookieHeader } = buildContext();

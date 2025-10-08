@@ -62,7 +62,7 @@ describe("Tests for Card component", () => {
         description={description}
         variant="basic"
         learnMore={{
-          href: "http://localhost:3000/",
+          href: "http://localhost:7502/",
           text: "Learn More",
         }}
         actionButton={{ child: "Button" }}
@@ -73,7 +73,7 @@ describe("Tests for Card component", () => {
 
     fireEvent.click(linkElement);
 
-    expect(window.location.href).toBe("http://localhost:3000/");
+    expect(window.location.href).toBe("http://localhost:7502/");
   });
 
   test("Should render card with SidebarCard variant and learn more link", () => {
