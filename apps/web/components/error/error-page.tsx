@@ -80,7 +80,7 @@ export const ErrorPage: React.FC<Props> = (props) => {
             </pre>
           </div>
 
-          <Button href="mailto:support@cal.com">Contact Support</Button>
+          <Button href="mailto:support@minimaworks.be">Contact Support</Button>
           <Button color="secondary" className="ml-2" onClick={handleReset}>
             Try again
           </Button>

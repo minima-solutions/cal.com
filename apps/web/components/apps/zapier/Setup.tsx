@@ -130,7 +130,7 @@ export default function ZapierSetup(props: IZapierSetupProps) {
                   components={[
                     <li key="instruction_1">Log into your Zapier account and create a new Zap.</li>,
                     <li key="instruction_2">
-                      Select Cal.com as your Trigger app. Also choose a Trigger event.
+                      Select MINIMA Meet as your Trigger app. Also choose a Trigger event.
                     </li>,
                     <li key="instruction_3">Choose your account and then enter your Unique API Key.</li>,
                     <li key="instruction_4">Test your Trigger.</li>,

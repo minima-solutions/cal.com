@@ -22,9 +22,9 @@ export const TypesExample: React.FC = () => (
                     placeholder={`Enter ${type}...`}
                     defaultValue={
                       type === "email"
-                        ? "example@cal.com"
+                        ? "example@minimaworks.be"
                         : type === "url"
-                        ? "https://cal.com"
+                        ? "https://www.minimaworks.be"
                         : type === "number"
                         ? "42"
                         : type === "tel"

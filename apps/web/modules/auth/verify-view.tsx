@@ -23,7 +23,7 @@ async function sendVerificationLogin(email: string, username: string, t: (key: s
     email: email.toLowerCase(),
     username: username.toLowerCase(),
     redirect: false,
-    callbackUrl: WEBAPP_URL || "https://app.cal.com",
+    callbackUrl: WEBAPP_URL || "https://meet.minimaworks.be",
   })
     .then(() => {
       showToast(t("verification_email_sent"), "success");

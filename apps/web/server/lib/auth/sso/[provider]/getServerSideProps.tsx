@@ -133,7 +133,7 @@ const getStripePremiumUsernameUrl = async ({
       },
     ],
     success_url: `${process.env.NEXT_PUBLIC_WEBAPP_URL}${successDestination}&session_id={CHECKOUT_SESSION_ID}`,
-    cancel_url: process.env.NEXT_PUBLIC_WEBAPP_URL || "https://app.cal.com",
+    cancel_url: process.env.NEXT_PUBLIC_WEBAPP_URL || "https://meet.minimaworks.be",
     allow_promotion_codes: true,
     metadata: {
       dubCustomerId: userId, // pass the userId during checkout creation for sales conversion tracking: https://d.to/conversions/stripe

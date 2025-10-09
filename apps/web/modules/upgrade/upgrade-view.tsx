@@ -51,7 +51,7 @@ export default function UpgradePage() {
             headline={t("you_are_all_set")}
             description={t("you_are_all_set_description")}
             Icon="circle-check"
-            buttonRaw={<Button href="mailto:support@cal.com">{t("contact_support")}</Button>}
+            buttonRaw={<Button href="mailto:support@minimaworks.be">{t("contact_support")}</Button>}
           />
         )}
       </div>

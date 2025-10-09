@@ -46,11 +46,11 @@ export default function Index() {
     <div>
       <h1>Welcome to Credential Sync Playground</h1>
       <p>
-        You are managing credentials for cal.com <strong>userId={userId}</strong> for{" "}
+        You are managing credentials for MINIMA Meet <strong>userId={userId}</strong> for{" "}
         <strong>appSlug={appSlug}</strong>. Update query params to manage a different user or app{" "}
       </p>
-      <button onClick={() => updateToken({ invalid: true })}>Give an invalid token to Cal.com</button>
-      <button onClick={() => updateToken()}>Give a valid token to Cal.com</button>
+      <button onClick={() => updateToken({ invalid: true })}>Give an invalid token to MINIMA Meet</button>
+      <button onClick={() => updateToken()}>Give a valid token to MINIMA Meet</button>
       <div>{data}</div>
     </div>
   );
