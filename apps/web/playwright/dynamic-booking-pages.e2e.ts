@@ -150,7 +150,7 @@ test("multiple duration selection updates event length correctly", async ({ page
 
 // eslint-disable-next-line playwright/no-skipped-test
 test.skip("it contains the right event details", async ({ page }) => {
-  const response = await page.goto(`http://acme.cal.local:7502/owner1+member1`);
+  const response = await page.goto(`http://acme.cal.local:3555/owner1+member1`);
   expect(response?.status()).toBe(200);
 
   await expect(page.locator('[data-testid="event-title"]')).toHaveText("Group Meeting");

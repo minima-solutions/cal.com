@@ -79,8 +79,8 @@ function App() {
         There is <code>Cal</code> component below me
       </h1>
       <Cal
-        calOrigin="http://localhost:7502"
-        embedJsUrl="//localhost:7502/embed/embed.js"
+        calOrigin="http://localhost:3555"
+        embedJsUrl="//localhost:3555/embed/embed.js"
         namespace="inline"
         style={{ width: "100%", height: "100%", overflow: "scroll" }}
         calLink="pro"

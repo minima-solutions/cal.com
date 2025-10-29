@@ -4,7 +4,7 @@ export const getGoogleAppKeysModuleMock = {
   getGoogleAppKeys: vi.fn().mockResolvedValue({
     client_id: "xxxxxxxxxxxxxxxxxxxxxxxxxx.apps.googleusercontent.com",
     client_secret: "xxxxxxxxxxxxxxxxxx",
-    redirect_uris: ["http://localhost:7502/api/integrations/googlecalendar/callback"],
+    redirect_uris: ["http://localhost:3555/api/integrations/googlecalendar/callback"],
   }),
 };
 

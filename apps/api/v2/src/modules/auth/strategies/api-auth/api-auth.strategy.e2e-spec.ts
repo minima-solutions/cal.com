@@ -147,7 +147,7 @@ describe("ApiAuthStrategy", () => {
     const data = {
       logo: "logo-url",
       name: "name",
-      redirectUris: ["http://localhost:7502"],
+      redirectUris: ["http://localhost:3555"],
       permissions: 32,
     };
     oAuthClient = await oAuthClientRepositoryFixture.create(organization.id, data, "secret");
@@ -233,7 +233,7 @@ describe("ApiAuthStrategy", () => {
               authorization: `Bearer cal_test_}`,
             },
             get: (key: string) =>
-              ({ Authorization: `Bearer cal_test_badkey1234`, origin: "http://localhost:7502" }[key]),
+              ({ Authorization: `Bearer cal_test_badkey1234`, origin: "http://localhost:3555" }[key]),
           }),
         }),
       } as ExecutionContext;
@@ -255,7 +255,7 @@ describe("ApiAuthStrategy", () => {
             headers: {
               [X_CAL_CLIENT_ID]: `${oAuthClient.id}gibberish`,
             },
-            get: (key: string) => ({ origin: "http://localhost:7502" }[key]),
+            get: (key: string) => ({ origin: "http://localhost:3555" }[key]),
           }),
         }),
       } as ExecutionContext;
@@ -278,7 +278,7 @@ describe("ApiAuthStrategy", () => {
             headers: {
               [X_CAL_SECRET_KEY]: `${oAuthClient.secret}gibberish`,
             },
-            get: (key: string) => ({ origin: "http://localhost:7502" }[key]),
+            get: (key: string) => ({ origin: "http://localhost:3555" }[key]),
           }),
         }),
       } as ExecutionContext;
@@ -303,7 +303,7 @@ describe("ApiAuthStrategy", () => {
               [X_CAL_SECRET_KEY]: `secret`,
             },
             get: (key: string) =>
-              ({ Authorization: `Bearer cal_test_badkey1234`, origin: "http://localhost:7502" }[key]),
+              ({ Authorization: `Bearer cal_test_badkey1234`, origin: "http://localhost:3555" }[key]),
           }),
         }),
       } as ExecutionContext;
@@ -327,7 +327,7 @@ describe("ApiAuthStrategy", () => {
               [X_CAL_SECRET_KEY]: `gibberish`,
             },
             get: (key: string) =>
-              ({ Authorization: `Bearer cal_test_badkey1234`, origin: "http://localhost:7502" }[key]),
+              ({ Authorization: `Bearer cal_test_badkey1234`, origin: "http://localhost:3555" }[key]),
           }),
         }),
       } as ExecutionContext;
@@ -346,7 +346,7 @@ describe("ApiAuthStrategy", () => {
       const context: ExecutionContext = {
         switchToHttp: () => ({
           getRequest: () => ({
-            get: (key: string) => ({ Authorization: ``, origin: "http://localhost:7502" }[key]),
+            get: (key: string) => ({ Authorization: ``, origin: "http://localhost:3555" }[key]),
           }),
         }),
       } as ExecutionContext;

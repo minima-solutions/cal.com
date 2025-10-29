@@ -21,7 +21,7 @@ The test suite is organized into the following directories:
 
 ### Setting the Base URL
 
-By default, tests will run against `http://localhost:7502`. To test against a different environment, set the `BASE_URL` environment variable:
+By default, tests will run against `http://localhost:3555`. To test against a different environment, set the `BASE_URL` environment variable:
 
 ```bash
 BASE_URL=https://your-cal-instance.com k6 run tests/performance/smoke/booking.js
@@ -63,7 +63,7 @@ This script automatically detects your operating system (Linux or macOS) and set
 #### Prerequisites
 
 - Docker installed and running
-- Cal.com running locally (default: `http://localhost:7502`)
+- Cal.com running locally (default: `http://localhost:3555`)
 
 #### Usage
 
@@ -100,7 +100,7 @@ Alternatively, you can run directly from the CLI:
 You can override the following environment variables:
 
 ```bash
-BASE_URL=http://localhost:7502 \
+BASE_URL=http://localhost:3555 \
 TOKEN=your_token_here \
 ./tests/scripts/run-k6-local.sh load
 ```
@@ -141,7 +141,7 @@ Performance thresholds are defined in `utils/config.js` and vary by test type:
 
 The following environment variables can be used to configure the tests:
 
-- `BASE_URL`: Base URL for the application (default: `http://localhost:7502`)
+- `BASE_URL`: Base URL for the application (default: `http://localhost:3555`)
 - `TEST_USER_FREE`: Username for free tier testing (default: `free`)
 - `TEST_PASSWORD_FREE`: Password for free tier testing (default: `free`)
 - `TEST_USER_PRO`: Username for pro tier testing (default: `pro`)

@@ -754,7 +754,7 @@ describe("handleNewBooking", () => {
             expectSuccessfulBookingCreationEmails({
               booking: {
                 uid: createdBooking.uid!,
-                urlOrigin: `${WEBSITE_PROTOCOL}//team-1.cal.local:7502`,
+                urlOrigin: `${WEBSITE_PROTOCOL}//team-1.cal.local:3555`,
               },
               booker,
               organizer,
@@ -988,7 +988,7 @@ describe("handleNewBooking", () => {
             expectSuccessfulBookingCreationEmails({
               booking: {
                 uid: createdBooking.uid!,
-                urlOrigin: `${WEBSITE_PROTOCOL}//team-1.cal.local:7502`,
+                urlOrigin: `${WEBSITE_PROTOCOL}//team-1.cal.local:3555`,
               },
               booker: { email: contructEmailFromPhoneNumber(TEST_ATTENDEE_NUMBER), name: booker.name },
               organizer,

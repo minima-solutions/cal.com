@@ -12,7 +12,7 @@ function App() {
   useEffect(() => {
     (async function () {
       const cal = await getCalApi({
-        embedJsUrl: "http://localhost:7502/embed/embed.js",
+        embedJsUrl: "http://localhost:3555/embed/embed.js",
         namespace: calNamespace,
       });
       cal("ui", { styles: { branding: { brandColor: "#000000" } }, hideEventTypeDetails: false });

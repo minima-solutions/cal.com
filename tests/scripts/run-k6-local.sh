@@ -20,7 +20,7 @@ MOUNT_LOCAL="${MOUNT_LOCAL:-$SCRIPT_DIR/../../tests}"
 WORKDIR_IN="/scripts"
 
 # --- Base URL for the system under test ---
-BASE_URL_DEFAULT="${BASE_URL:-http://host.docker.internal:7502}"
+BASE_URL_DEFAULT="${BASE_URL:-http://host.docker.internal:3555}"
 
 # --- Pass environment variables to k6 (only if present) ---
 ENV_ARGS=()

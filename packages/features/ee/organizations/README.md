@@ -11,8 +11,8 @@ From the [Original RFC](https://github.com/calcom/cal.com/issues/7142):
 2.  Set the following environment variables as described:
 
     1. **`CALCOM_LICENSE_KEY`**: Since Organizations is an EE feature, a license key should be present, either as this environment variable or visiting as an Admin `/auth/setup`. To get a license key, please [contact sales](https://cal.com/sales)
-    2. **`NEXT_PUBLIC_WEBAPP_URL`**: In case of local development, this variable should be set to `http://app.cal.local:7502` to be able to handle subdomains correctly in terms of authentication and cookies
-    3. **`NEXTAUTH_URL`**: Should be equal to `NEXT_PUBLIC_WEBAPP_URL` which is `http://app.cal.local:7502`
+    2. **`NEXT_PUBLIC_WEBAPP_URL`**: In case of local development, this variable should be set to `http://app.cal.local:3555` to be able to handle subdomains correctly in terms of authentication and cookies
+    3. **`NEXTAUTH_URL`**: Should be equal to `NEXT_PUBLIC_WEBAPP_URL` which is `http://app.cal.local:3555`
     4. **`NEXTAUTH_COOKIE_DOMAIN`**: In case of local development, this variable should be set to `.cal.local` to be able to accept session cookies in subdomains as well otherwise it should be set to the corresponding environment such as `.cal.dev`, `.cal.qa` or `.cal.com`. If you choose another subdomain, the value for this should match the apex domain of `NEXT_PUBLIC_WEBAPP_URL` with a leading dot (`.`)
     5. **`ORGANIZATIONS_ENABLED`**: Should be set to `1` or `true`
     6. **`STRIPE_ORG_MONTHLY_PRICE_ID`**: For dev and all testing should be set to your own testing key. Or ask for the shared key if you're a core member.
@@ -35,7 +35,7 @@ From the [Original RFC](https://github.com/calcom/cal.com/issues/7142):
 
 Browsers do not allow camera/mic access on any non-HTTPS hosts except for localhost. To test cal video organization meeting links locally (`app.cal.local/video/[uid]`). You can access the meeting link by replacing app.cal.local with localhost in the URL.
 
-For eg:- Use `http://localhost:7502/video/nAjnkjejuzis99NhN72rGt` instead of `http://app.cal.local:7502/video/nAjnkjejuzis99NhN72rGt`.
+For eg:- Use `http://localhost:3555/video/nAjnkjejuzis99NhN72rGt` instead of `http://app.cal.local:3555/video/nAjnkjejuzis99NhN72rGt`.
 
 To get an HTTPS URL for localhost, you can use a tunneling tool such as `ngrok` or [Tunnelmole](https://github.com/robbie-cahill/tunnelmole-client) . Alternatively, you can generate an SSL certificate for your local domain using `mkcert`. Turn off any SSL certificate validation in your HTTPS client (be sure to do this for local only, otherwise its a security risk).
 

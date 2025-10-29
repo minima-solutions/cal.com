@@ -15,7 +15,7 @@ server:
   description: Local Development Server
   variables:
     port:
-      default: "7502"
+      default: "3555"
 tags:
   - name: Authentication
     description: "Auth routes, powered by Next-Auth.js"

@@ -21,9 +21,9 @@ REDIS_URL="redis://localhost:6379"
 3. Start "apps/api/v2" api using `yarn dev`.
 4. Start "packages/platform/atoms" atoms package with `yarn dev`.
 5. Start "apps/web" cal web app using `yarn dx`.
-6. Open your browser at "http://localhost:7502/" and login with admin username `admin@example.com` and password `ADMINadmin2022!`.
-7. In the web app navigate to `http://localhost:7502/settings/organizations/new` and create a sample organization. When asked for phone verification code enter `111111`.
-8. In the web app navigate to `http://localhost:7502/settings/organizations/platform/oauth-clients` and create a new oAuth client - give all permissions and set redirect uri to `http://localhost:4321` which points to example app.
+6. Open your browser at "http://localhost:3555/" and login with admin username `admin@example.com` and password `ADMINadmin2022!`.
+7. In the web app navigate to `http://localhost:3555/settings/organizations/new` and create a sample organization. When asked for phone verification code enter `111111`.
+8. In the web app navigate to `http://localhost:3555/settings/organizations/platform/oauth-clients` and create a new oAuth client - give all permissions and set redirect uri to `http://localhost:4321` which points to example app.
 9. Setup environment for the example app you want to run:
     1. First, copy ".env.example" into ".env".
     2. Open ".env" file and paste client id from step 8 in `NEXT_PUBLIC_X_CAL_ID` and client secret in `X_CAL_SECRET_KEY`. If in step 2 you used the same environment variables, then `NEXT_PUBLIC_CALCOM_API_URL` can stay as is. Otherwise adjust the port to point to the same `API_PORT` as you used in step 2.

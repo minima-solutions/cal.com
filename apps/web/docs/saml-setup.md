@@ -4,7 +4,7 @@ This guide explains the settings you need to use to configure SAML with your Ide
 
 > **Note:** Please do not add a trailing slash at the end of the URLs. Create them exactly as shown below.
 
-**Assertion consumer service URL / Single Sign-On URL / Destination URL:** [http://localhost:7502/api/auth/saml/callback](http://localhost:7502/api/auth/saml/callback) [Replace this with the URL for your self-hosted Cal instance]
+**Assertion consumer service URL / Single Sign-On URL / Destination URL:** [http://localhost:3555/api/auth/saml/callback](http://localhost:3555/api/auth/saml/callback) [Replace this with the URL for your self-hosted Cal instance]
 
 **Entity ID / Identifier / Audience URI / Audience Restriction:** https://saml.cal.com
 

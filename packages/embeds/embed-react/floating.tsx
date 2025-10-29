@@ -12,11 +12,11 @@ function App() {
     (async function () {
       const cal = await getCalApi({
         namespace: "floating",
-        embedJsUrl: "http://localhost:7502/embed/embed.js",
+        embedJsUrl: "http://localhost:3555/embed/embed.js",
       });
       cal("floatingButton", {
         calLink: "pro",
-        calOrigin: "http://localhost:7502",
+        calOrigin: "http://localhost:3555",
         config: {
           theme: "dark",
         },

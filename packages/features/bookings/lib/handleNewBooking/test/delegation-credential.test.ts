@@ -702,7 +702,7 @@ describe("handleNewBooking", () => {
           organizer,
           location: BookingLocations.CalVideo,
           subscriberUrl: "http://my-webhook.example.com",
-          videoCallUrl: `http://app.cal.local:7502/video/${createdBooking.uid}`,
+          videoCallUrl: `http://app.cal.local:3555/video/${createdBooking.uid}`,
         });
       },
       timeout

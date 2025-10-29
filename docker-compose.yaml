@@ -24,7 +24,7 @@ services:
       dockerfile: Dockerfile
       platforms:
         - linux/amd64
-        - linux/arm64
+        # - linux/arm64
       args:
         NEXT_PUBLIC_WEBAPP_URL: ${NEXT_PUBLIC_WEBAPP_URL}
         NEXT_PUBLIC_API_V2_URL: ${NEXT_PUBLIC_API_V2_URL}
@@ -43,7 +43,7 @@ services:
     networks:
       - stack
     ports:
-      - 7502:7502
+      - 3555:3555
     env_file: .env
     environment:
       - DATABASE_URL=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${DATABASE_HOST}/${POSTGRES_DB}

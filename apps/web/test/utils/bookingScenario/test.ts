@@ -31,7 +31,7 @@ const _testWithAndWithoutOrg = (
         skip,
         org: {
           organization: org,
-          urlOrigin: `${WEBSITE_PROTOCOL}//${org.slug}.cal.local:7502`,
+          urlOrigin: `${WEBSITE_PROTOCOL}//${org.slug}.cal.local:3555`,
         },
         onTestFinished,
       });

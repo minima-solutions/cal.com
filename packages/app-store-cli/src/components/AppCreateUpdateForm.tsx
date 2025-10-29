@@ -221,7 +221,7 @@ export const AppForm = ({
               </Box>
               <Box flexDirection="row">
                 <Text color="green">{isTemplate ? "Template" : "App"} URL: </Text>
-                <Text>{`http://localhost:7502/apps/${slug}`}</Text>
+                <Text>{`http://localhost:3555/apps/${slug}`}</Text>
               </Box>
               <Box flexDirection="row">
                 <Text color="green">Name: </Text>
@@ -244,7 +244,7 @@ export const AppForm = ({
                 <Text>{email}</Text>
               </Box>
               <Text bold>
-                Next Step: Enable the app from http://localhost:7502/settings/admin/apps as admin user (Email:
+                Next Step: Enable the app from http://localhost:3555/settings/admin/apps as admin user (Email:
                 admin@example.com, Pass: ADMINadmin2022!)
               </Text>
             </Box>

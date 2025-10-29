@@ -679,19 +679,19 @@ const nextConfig = (phase) => {
           destination: "/settings/admin/apps/calendar",
           permanent: true,
         },
-        // OAuth callbacks when sent to localhost:7502(w would be expected) should be redirected to corresponding to WEBAPP_URL
+        // OAuth callbacks when sent to localhost:3555(w would be expected) should be redirected to corresponding to WEBAPP_URL
         ...(process.env.NODE_ENV === "development" &&
         // Safer to enable the redirect only when the user is opting to test out organizations
         isOrganizationsEnabled &&
         // Prevent infinite redirect by checking that we aren't already on localhost
-        process.env.NEXT_PUBLIC_WEBAPP_URL !== "http://localhost:7502"
+        process.env.NEXT_PUBLIC_WEBAPP_URL !== "http://localhost:3555"
           ? [
               {
                 has: [
                   {
                     type: "header",
                     key: "host",
-                    value: "localhost:7502",
+                    value: "localhost:3555",
                   },
                 ],
                 source: "/api/integrations/:args*",

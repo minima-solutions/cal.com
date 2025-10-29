@@ -1,6 +1,6 @@
 const url = new URL(document.URL);
 window.only = url.searchParams.get("only");
-window.calOrigin = url.searchParams.get("calOrigin") || "http://localhost:7502";
+window.calOrigin = url.searchParams.get("calOrigin") || "http://localhost:3555";
 window.calLink = url.searchParams.get("calLink");
 // We ensure that email is passed as param.email and not email so that autoforwarding of params plus explicit passing of email param doesn't make it an array of emails
 const emailQueryParam = url.searchParams.get("param.email");

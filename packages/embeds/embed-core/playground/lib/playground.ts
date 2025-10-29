@@ -201,7 +201,7 @@ if (only === "all" || only === "ns:fourth") {
 if (only === "all" || only === "ns:corpTest") {
   Cal("init", "corpTest", {
     debug: true,
-    origin: "http://localhost:7502",
+    origin: "http://localhost:3555",
   });
   Cal.ns.corpTest([
     "inline",

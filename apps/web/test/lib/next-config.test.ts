@@ -63,13 +63,13 @@ describe("next.config.js - Org Rewrite", () => {
       expect(regExp.exec("booker.dashboard.company.com")).toEqual(null);
     });
 
-    it("WEBAPP_URL=http://app.cal.local:7502", () => {
+    it("WEBAPP_URL=http://app.cal.local:3555", () => {
       const regExp = new RegExp(
-        getRegExpThatMatchesAllOrgDomains({ webAppUrl: "http://app.cal.local:7502" })
+        getRegExpThatMatchesAllOrgDomains({ webAppUrl: "http://app.cal.local:3555" })
       );
-      expect(regExp.exec("acme.cal.local:7502")?.groups?.orgSlug).toEqual("acme");
-      expect(regExp.exec("acme.app.cal.local:7502")?.groups?.orgSlug).toEqual("acme");
-      expect(regExp.exec("app.cal.local:7502")).toEqual(null);
+      expect(regExp.exec("acme.cal.local:3555")?.groups?.orgSlug).toEqual("acme");
+      expect(regExp.exec("acme.app.cal.local:3555")?.groups?.orgSlug).toEqual("acme");
+      expect(regExp.exec("app.cal.local:3555")).toEqual(null);
     });
 
     it("Vercel Preview special handling - vercel.app. Cal.com deployed on vercel apps have different subdomains, so we can't consider them org domains", () => {
@@ -81,12 +81,12 @@ describe("next.config.js - Org Rewrite", () => {
 
     describe("NEXT_PUBLIC_SINGLE_ORG_MODE_ENABLED=1", () => {
       process.env.NEXT_PUBLIC_SINGLE_ORG_MODE_ENABLED = "1";
-      it("WEBAPP_URL=http://app.cal.local:7502", () => {
+      it("WEBAPP_URL=http://app.cal.local:3555", () => {
         const regExp = new RegExp(
-          getRegExpThatMatchesAllOrgDomains({ webAppUrl: "http://app.cal.local:7502" })
+          getRegExpThatMatchesAllOrgDomains({ webAppUrl: "http://app.cal.local:3555" })
         );
-        expect(regExp.exec("acme.cal.local:7502")?.groups?.orgSlug).toEqual("acme");
-        expect(regExp.exec("app.cal.local:7502")).toEqual(null);
+        expect(regExp.exec("acme.cal.local:3555")?.groups?.orgSlug).toEqual("acme");
+        expect(regExp.exec("app.cal.local:3555")).toEqual(null);
       });
     });
   });

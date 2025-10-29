@@ -43,7 +43,7 @@ COPY tests ./tests
 
 RUN yarn config set httpTimeout 1200000
 # Install Turborepo globally so "turbo" is available in PATH
-RUN npm i -g turbo@latest
+RUN npm i -g turbo@2.5.5
 RUN npx turbo prune --scope=@calcom/web --scope=@calcom/trpc --docker
 RUN yarn install
 
@@ -57,11 +57,11 @@ RUN rm -rf node_modules/.cache .yarn/cache apps/web/.next/cache
 
 
 # ---- Pack (assembly for runtime) ----
-FROM node:18 AS builder-two
+FROM node:20-slim AS builder-two
 
 WORKDIR /calcom
-ARG NEXT_PUBLIC_WEBAPP_URL=http://localhost:7502
-ENV NODE_ENV=production
+ARG NEXT_PUBLIC_WEBAPP_URL=http://localhost:3555
+ENV NODE_ENV=production NEXT_TELEMETRY_DISABLED=1
 
 # --- source lives at repo root now ---
 COPY package.json .yarnrc.yml turbo.json i18n.json ./
@@ -81,19 +81,20 @@ RUN ./scripts/replace-placeholder.sh http://NEXT_PUBLIC_WEBAPP_URL_PLACEHOLDER $
 
 
 # ---- Runtime ----
-FROM node:18 AS runner
+FROM node:20-slim AS runner
 
 WORKDIR /calcom
 COPY --from=builder-two /calcom ./
 
-ARG NEXT_PUBLIC_WEBAPP_URL=http://localhost:7502
+ARG NEXT_PUBLIC_WEBAPP_URL=http://localhost:3555
 ENV NEXT_PUBLIC_WEBAPP_URL=$NEXT_PUBLIC_WEBAPP_URL \
     BUILT_NEXT_PUBLIC_WEBAPP_URL=$NEXT_PUBLIC_WEBAPP_URL \
-    NODE_ENV=production
+    NODE_ENV=production \
+    NEXT_TELEMETRY_DISABLED=1
 
-EXPOSE 7502
+EXPOSE 3555
 
 HEALTHCHECK --interval=30s --timeout=30s --retries=5 \
-    CMD wget --spider http://localhost:7502 || exit 1
+    CMD curl -fsS http://localhost:3555 || exit 1
 
 CMD ["/bin/sh", "/calcom/scripts/start.sh"]

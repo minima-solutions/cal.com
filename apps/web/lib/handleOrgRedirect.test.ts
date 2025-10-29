@@ -25,7 +25,7 @@ const createTestContext = (overrides?: {
   ({
     req: {
       headers: {
-        host: overrides?.host || "cal.local:7502",
+        host: overrides?.host || "cal.local:3555",
       },
     },
     query: overrides?.query || {},
@@ -121,7 +121,7 @@ const expectPrismaNotCalled = () => {
 const expectRedirectUsesData = (
   result: any,
   expectedSlug: string,
-  expectedOrigin = "https://acme.cal.local:7502"
+  expectedOrigin = "https://acme.cal.local:3555"
 ) => {
   if (!result || !result.redirect) {
     throw new Error("Expected a redirect result but got null/undefined");
@@ -149,13 +149,13 @@ describe("handleOrgRedirect", () => {
         redirects: [
           {
             from: "pro",
-            toUrl: "https://acme.cal.local:7502/pro-example",
+            toUrl: "https://acme.cal.local:3555/pro-example",
             type: RedirectType.User,
           },
           // Add a decoy redirect to ensure the code picks the right one
           {
             from: "other-user",
-            toUrl: "https://acme.cal.local:7502/wrong-redirect",
+            toUrl: "https://acme.cal.local:3555/wrong-redirect",
             type: RedirectType.User,
           },
         ],
@@ -167,7 +167,7 @@ describe("handleOrgRedirect", () => {
       const result = await handleOrgRedirect(params);
 
       expectPrismaCalledWith({ type: RedirectType.User, slugs: ["pro"] });
-      expectRedirectTo(result, "https://acme.cal.local:7502/pro-example?orgRedirection=true");
+      expectRedirectTo(result, "https://acme.cal.local:3555/pro-example?orgRedirection=true");
       expectRedirectUsesData(result, "pro-example");
     });
 
@@ -189,13 +189,13 @@ describe("handleOrgRedirect", () => {
         redirects: [
           {
             from: "sales-team",
-            toUrl: "https://acme.cal.local:7502/sales",
+            toUrl: "https://acme.cal.local:3555/sales",
             type: RedirectType.Team,
           },
           // Add a User redirect with same slug to verify type filtering
           {
             from: "sales-team",
-            toUrl: "https://acme.cal.local:7502/wrong-user-redirect",
+            toUrl: "https://acme.cal.local:3555/wrong-user-redirect",
             type: RedirectType.User,
           },
         ],
@@ -208,7 +208,7 @@ describe("handleOrgRedirect", () => {
       const result = await handleOrgRedirect(params);
 
       expectPrismaCalledWith({ type: RedirectType.Team, slugs: ["sales-team"] });
-      expectRedirectTo(result, "https://acme.cal.local:7502/sales?orgRedirection=true");
+      expectRedirectTo(result, "https://acme.cal.local:3555/sales?orgRedirection=true");
       expectRedirectUsesData(result, "sales");
     });
   });
@@ -223,14 +223,14 @@ describe("handleOrgRedirect", () => {
         redirects: [
           {
             from: "pro",
-            toUrl: "https://acme.cal.local:7502/pro-example",
+            toUrl: "https://acme.cal.local:3555/pro-example",
             type: RedirectType.User,
           },
         ],
       });
 
       const params = createTestRedirectParams({
-        context: createTestContext({ host: "cal.local:7502" }),
+        context: createTestContext({ host: "cal.local:3555" }),
         currentOrgDomain: "acme",
       });
       const result = await handleOrgRedirect(params);
@@ -245,7 +245,7 @@ describe("handleOrgRedirect", () => {
         redirects: [
           {
             from: "john87",
-            toUrl: "https://acme.cal.local:7502/john",
+            toUrl: "https://acme.cal.local:3555/john",
             type: RedirectType.User,
           },
         ],
@@ -285,7 +285,7 @@ describe("handleOrgRedirect", () => {
         redirects: [
           {
             from: "pro",
-            toUrl: "https://acme.cal.local:7502/pro-example",
+            toUrl: "https://acme.cal.local:3555/pro-example",
             type: RedirectType.User,
           },
         ],
@@ -297,7 +297,7 @@ describe("handleOrgRedirect", () => {
       const result = await handleOrgRedirect(params);
 
       expectPrismaCalledWith({ type: RedirectType.User, slugs: ["pro"] });
-      expectRedirectTo(result, "https://acme.cal.local:7502/pro-example/30min?orgRedirection=true");
+      expectRedirectTo(result, "https://acme.cal.local:3555/pro-example/30min?orgRedirection=true");
       // Verify the event type slug was properly appended
       const url = new URL(result?.redirect.destination || "");
       expect(url.pathname).toBe("/pro-example/30min");
@@ -308,7 +308,7 @@ describe("handleOrgRedirect", () => {
         redirects: [
           {
             from: "pro",
-            toUrl: "https://acme.cal.local:7502/pro-example",
+            toUrl: "https://acme.cal.local:3555/pro-example",
             type: RedirectType.User,
           },
         ],
@@ -319,7 +319,7 @@ describe("handleOrgRedirect", () => {
       });
       const result = await handleOrgRedirect(params);
 
-      expectRedirectTo(result, "https://acme.cal.local:7502/pro-example?orgRedirection=true");
+      expectRedirectTo(result, "https://acme.cal.local:3555/pro-example?orgRedirection=true");
       expectRedirectUsesData(result, "pro-example");
     });
   });
@@ -330,17 +330,17 @@ describe("handleOrgRedirect", () => {
         redirects: [
           {
             from: "user1",
-            toUrl: "https://acme.cal.local:7502/org-user1",
+            toUrl: "https://acme.cal.local:3555/org-user1",
             type: RedirectType.User,
           },
           {
             from: "user2",
-            toUrl: "https://acme.cal.local:7502/org-user2",
+            toUrl: "https://acme.cal.local:3555/org-user2",
             type: RedirectType.User,
           },
           {
             from: "user3",
-            toUrl: "https://acme.cal.local:7502/org-user3",
+            toUrl: "https://acme.cal.local:3555/org-user3",
             type: RedirectType.User,
           },
         ],
@@ -353,7 +353,7 @@ describe("handleOrgRedirect", () => {
 
       expectRedirectTo(
         result,
-        "https://acme.cal.local:7502/org-user1+org-user2+org-user3?orgRedirection=true"
+        "https://acme.cal.local:3555/org-user1+org-user2+org-user3?orgRedirection=true"
       );
       // Verify order is preserved from input slugs
       const url = new URL(result?.redirect.destination || "");
@@ -365,13 +365,13 @@ describe("handleOrgRedirect", () => {
         redirects: [
           {
             from: "user1",
-            toUrl: "https://acme.cal.local:7502/org-user1",
+            toUrl: "https://acme.cal.local:3555/org-user1",
             type: RedirectType.User,
           },
           // user2 has no redirect - it should stay as-is
           {
             from: "user3",
-            toUrl: "https://acme.cal.local:7502/org-user3",
+            toUrl: "https://acme.cal.local:3555/org-user3",
             type: RedirectType.User,
           },
         ],
@@ -382,7 +382,7 @@ describe("handleOrgRedirect", () => {
       });
       const result = await handleOrgRedirect(params);
 
-      expectRedirectTo(result, "https://acme.cal.local:7502/org-user1+user2+org-user3?orgRedirection=true");
+      expectRedirectTo(result, "https://acme.cal.local:3555/org-user1+user2+org-user3?orgRedirection=true");
       // Verify that user2 remains unchanged while others are redirected
       const url = new URL(result?.redirect.destination || "");
       expect(url.pathname).toBe("/org-user1+user2+org-user3");
@@ -421,7 +421,7 @@ describe("handleOrgRedirect", () => {
         redirects: [
           {
             from: "pro",
-            toUrl: "https://acme.cal.local:7502/pro-example",
+            toUrl: "https://acme.cal.local:3555/pro-example",
             type: RedirectType.User,
           },
         ],
@@ -432,7 +432,7 @@ describe("handleOrgRedirect", () => {
       });
       const result = await handleOrgRedirect(params);
 
-      expectRedirectTo(result, "https://acme.cal.local:7502/pro-example?orgRedirection=true");
+      expectRedirectTo(result, "https://acme.cal.local:3555/pro-example?orgRedirection=true");
       expectRedirectUsesData(result, "pro-example");
     });
 
@@ -441,7 +441,7 @@ describe("handleOrgRedirect", () => {
         redirects: [
           {
             from: "pro",
-            toUrl: "https://acme.cal.local:7502/pro-example",
+            toUrl: "https://acme.cal.local:3555/pro-example",
             type: RedirectType.User,
           },
         ],
@@ -454,7 +454,7 @@ describe("handleOrgRedirect", () => {
       });
       const result = await handleOrgRedirect(params);
 
-      expectRedirectTo(result, "https://acme.cal.local:7502/pro-example?abc=1&xyz=test&orgRedirection=true");
+      expectRedirectTo(result, "https://acme.cal.local:3555/pro-example?abc=1&xyz=test&orgRedirection=true");
       // Verify query parameters are preserved
       const url = new URL(result?.redirect.destination || "");
       expect(url.searchParams.get("abc")).toBe("1");
@@ -466,7 +466,7 @@ describe("handleOrgRedirect", () => {
         redirects: [
           {
             from: "pro",
-            toUrl: "https://acme.cal.local:7502/pro-example",
+            toUrl: "https://acme.cal.local:3555/pro-example",
             type: RedirectType.User,
           },
         ],
@@ -479,7 +479,7 @@ describe("handleOrgRedirect", () => {
       });
       const result = await handleOrgRedirect(params);
 
-      expectRedirectTo(result, "https://acme.cal.local:7502/pro-example?abc=1&orgRedirection=true");
+      expectRedirectTo(result, "https://acme.cal.local:3555/pro-example?abc=1&orgRedirection=true");
 
       // Verify only one orgRedirection parameter exists
       const url = new URL(result?.redirect.destination || "");
@@ -493,7 +493,7 @@ describe("handleOrgRedirect", () => {
         redirects: [
           {
             from: "pro",
-            toUrl: "https://acme.cal.local:7502/pro-example",
+            toUrl: "https://acme.cal.local:3555/pro-example",
             type: RedirectType.User,
           },
         ],
@@ -531,7 +531,7 @@ describe("handleOrgRedirect", () => {
         redirects: [
           {
             from: "pro",
-            toUrl: "https://acme.cal.local:7502/pro-example/",
+            toUrl: "https://acme.cal.local:3555/pro-example/",
             type: RedirectType.User,
           },
         ],
@@ -540,7 +540,7 @@ describe("handleOrgRedirect", () => {
       const params = createTestRedirectParams();
       const result = await handleOrgRedirect(params);
 
-      expectRedirectTo(result, "https://acme.cal.local:7502/pro-example/?orgRedirection=true");
+      expectRedirectTo(result, "https://acme.cal.local:3555/pro-example/?orgRedirection=true");
       // Verify trailing slash is preserved
       const url = new URL(result?.redirect.destination || "");
       expect(url.pathname).toBe("/pro-example/");
@@ -551,7 +551,7 @@ describe("handleOrgRedirect", () => {
         redirects: [
           {
             from: "pro",
-            toUrl: "https://acme.cal.local:7502",
+            toUrl: "https://acme.cal.local:3555",
             type: RedirectType.User,
           },
         ],
@@ -560,7 +560,7 @@ describe("handleOrgRedirect", () => {
       const params = createTestRedirectParams();
       const result = await handleOrgRedirect(params);
 
-      expectRedirectTo(result, "https://acme.cal.local:7502?orgRedirection=true");
+      expectRedirectTo(result, "https://acme.cal.local:3555?orgRedirection=true");
       // Verify root path redirect
       const url = new URL(result?.redirect.destination || "");
       expect(url.pathname).toBe("/");
@@ -571,7 +571,7 @@ describe("handleOrgRedirect", () => {
         redirects: [
           {
             from: "user-name.test",
-            toUrl: "https://acme.cal.local:7502/user_name_test",
+            toUrl: "https://acme.cal.local:3555/user_name_test",
             type: RedirectType.User,
           },
         ],
@@ -582,7 +582,7 @@ describe("handleOrgRedirect", () => {
       });
       const result = await handleOrgRedirect(params);
 
-      expectRedirectTo(result, "https://acme.cal.local:7502/user_name_test?orgRedirection=true");
+      expectRedirectTo(result, "https://acme.cal.local:3555/user_name_test?orgRedirection=true");
       expectRedirectUsesData(result, "user_name_test");
     });
   });
@@ -618,7 +618,7 @@ describe("getRedirectWithOriginAndSearchString", () => {
       redirects: [
         {
           from: "john",
-          toUrl: "https://acme.cal.local:7502/john-org",
+          toUrl: "https://acme.cal.local:3555/john-org",
           type: RedirectType.User,
         },
       ],
@@ -633,7 +633,7 @@ describe("getRedirectWithOriginAndSearchString", () => {
     const result = await getRedirectWithOriginAndSearchString(params);
 
     expect(result).not.toBeNull();
-    expect(result?.origin).toBe("https://acme.cal.local:7502");
+    expect(result?.origin).toBe("https://acme.cal.local:3555");
     expect(result?.searchString).toBe("?orgRedirection=true");
   });
 
@@ -645,7 +645,7 @@ describe("getRedirectWithOriginAndSearchString", () => {
       redirects: [
         {
           from: "john",
-          toUrl: "https://acme.cal.local:7502/john-org",
+          toUrl: "https://acme.cal.local:3555/john-org",
           type: RedirectType.User,
         },
       ],
@@ -669,7 +669,7 @@ describe("getRedirectWithOriginAndSearchString", () => {
       redirects: [
         {
           from: "john",
-          toUrl: "https://acme.cal.local:7502/john-org",
+          toUrl: "https://acme.cal.local:3555/john-org",
           type: RedirectType.User,
         },
       ],
@@ -684,7 +684,7 @@ describe("getRedirectWithOriginAndSearchString", () => {
     const result = await getRedirectWithOriginAndSearchString(params);
 
     expect(result).not.toBeNull();
-    expect(result?.origin).toBe("https://acme.cal.local:7502");
+    expect(result?.origin).toBe("https://acme.cal.local:3555");
     expect(result?.searchString).toBe("?foo=bar&baz=qux&orgRedirection=true");
   });
 

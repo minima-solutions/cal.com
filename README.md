@@ -283,7 +283,7 @@ for Logger level to be set at info, for example.
 1. Click on the `User` model to add a new user record.
 1. Fill out the fields `email`, `username`, `password`, and set `metadata` to empty `{}` (remembering to encrypt your password with [BCrypt](https://bcrypt-generator.com/)) and click `Save 1 Record` to create your first user.
    > New users are set on a `TRIAL` plan by default. You might want to adjust this behavior to your needs in the `packages/prisma/schema.prisma` file.
-1. Open a browser to [http://localhost:7502](http://localhost:7502) and login with your just created, first user.
+1. Open a browser to [http://localhost:3555](http://localhost:3555) and login with your just created, first user.
 
 ##### Approach 2
 
@@ -298,7 +298,7 @@ The above command will populate the local db with dummy users.
 
 ### E2E-Testing
 
-Be sure to set the environment variable `NEXTAUTH_URL` to the correct value. If you are running locally, as the documentation within `.env.example` mentions, the value should be `http://localhost:7502`.
+Be sure to set the environment variable `NEXTAUTH_URL` to the correct value. If you are running locally, as the documentation within `.env.example` mentions, the value should be `http://localhost:3555`.
 
 ```sh
 # In a terminal just run:

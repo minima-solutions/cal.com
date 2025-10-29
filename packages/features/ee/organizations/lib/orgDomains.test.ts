@@ -11,7 +11,7 @@ function setupEnvs({ WEBAPP_URL = "https://app.cal.com", WEBSITE_URL } = {}) {
   Object.defineProperty(constants, "WEBAPP_URL", { value: WEBAPP_URL });
   Object.defineProperty(constants, "WEBSITE_URL", { value: WEBSITE_URL });
   Object.defineProperty(constants, "ALLOWED_HOSTNAMES", {
-    value: ["cal.com", "cal.dev", "cal-staging.com", "cal.community", "cal.local:7502", "localhost:7502"],
+    value: ["cal.com", "cal.dev", "cal-staging.com", "cal.community", "cal.local:3555", "localhost:3555"],
   });
   Object.defineProperty(constants, "RESERVED_SUBDOMAINS", {
     value: [
@@ -59,7 +59,7 @@ describe("Org Domains Utils", () => {
 
     it("should return a non valid org domain for localhost", () => {
       setupEnvs();
-      expect(getOrgDomainConfigFromHostname({ hostname: "localhost:7502" })).toEqual({
+      expect(getOrgDomainConfigFromHostname({ hostname: "localhost:3555" })).toEqual({
         currentOrgDomain: null,
         isValidOrgDomain: false,
       });
@@ -78,13 +78,13 @@ describe("Org Domains Utils", () => {
     });
 
     it("should handle a local web app with port url with a local subdomain hostname", () => {
-      setupEnvs({ WEBAPP_URL: "http://app.cal.local:7502" });
-      expect(getOrgSlug("acme.cal.local:7502")).toEqual("acme");
+      setupEnvs({ WEBAPP_URL: "http://app.cal.local:3555" });
+      expect(getOrgSlug("acme.cal.local:3555")).toEqual("acme");
     });
 
     it("should handle a local web app with port url with a non-local subdomain hostname", () => {
-      setupEnvs({ WEBAPP_URL: "http://app.cal.local:7502" });
-      expect(getOrgSlug("acme.cal.com:7502")).toEqual(null);
+      setupEnvs({ WEBAPP_URL: "http://app.cal.local:3555" });
+      expect(getOrgSlug("acme.cal.com:3555")).toEqual(null);
     });
   });
 

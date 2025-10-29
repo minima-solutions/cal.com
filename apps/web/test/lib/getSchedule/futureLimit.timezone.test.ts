@@ -63,7 +63,7 @@ function getPeriodTypeData({
 
 vi.mock("@calcom/lib/constants", () => ({
   IS_PRODUCTION: true,
-  WEBAPP_URL: "http://localhost:7502",
+  WEBAPP_URL: "http://localhost:3555",
   RESERVED_SUBDOMAINS: ["auth", "docs"],
   ROLLING_WINDOW_PERIOD_MAX_DAYS_TO_CHECK: 61,
   SINGLE_ORG_SLUG: "",

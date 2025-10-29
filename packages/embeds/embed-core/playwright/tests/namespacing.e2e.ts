@@ -61,7 +61,7 @@ test.describe("Namespacing", () => {
     await page.click("#two-different-namespace-with-different-init-config");
     const namespace1IframeSrc = await page.locator("iframe").nth(0).getAttribute("src");
     const namespace2IframeSrc = await page.locator("iframe").nth(1).getAttribute("src");
-    expect(namespace1IframeSrc).toContain("http://localhost:7502/pro");
-    expect(namespace2IframeSrc).toContain("http://127.0.0.1:7502/pro");
+    expect(namespace1IframeSrc).toContain("http://localhost:3555/pro");
+    expect(namespace2IframeSrc).toContain("http://127.0.0.1:3555/pro");
   });
 });
